@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,10 +19,17 @@ public class MainActivity extends AppCompatActivity {
         n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this , LoginActivity.class);
-                startActivity(myIntent);
-
-
+                EditText email = (EditText) findViewById(R.id.email_id);
+                EditText pwd =(EditText) findViewById(R.id.pass_id);
+                if(email.getText().toString().equals("abc@123") && pwd.getText().toString().equals("1234")) {
+                    Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(myIntent);
+                }
+                else
+                {
+                    Intent myIntent = new Intent(MainActivity.this, loginFailed.class);
+                    startActivity(myIntent);
+                }
             }
         });
     }
