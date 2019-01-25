@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">loginScreen</string>
+    <string name="login_fail">Login Failed!</string>
+    <string name="msg">Try Again with correct password</string>
 </resources>
