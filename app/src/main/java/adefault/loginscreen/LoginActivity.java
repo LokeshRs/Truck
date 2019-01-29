@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-        /*
+
         load_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             img.setImageBitmap(bit);
 
 
-                }*/
+                }
 
 
     }
