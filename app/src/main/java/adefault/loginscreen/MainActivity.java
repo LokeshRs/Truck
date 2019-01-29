@@ -1,5 +1,6 @@
 package adefault.loginscreen;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,23 +20,21 @@ import static android.app.PendingIntent.getActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button n;
+    EditText email;
+    EditText pwd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button n = (Button)findViewById(button_login);
-
-
-
+        n = (Button)findViewById(button_login);
 
         n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText email = (EditText) findViewById(R.id.email_id);
-                EditText pwd =(EditText) findViewById(R.id.pass_id);
-                                Thread mythread = new Thread();
 
+                email = (EditText) findViewById(R.id.email_id);
+                pwd = (EditText) findViewById(R.id.pass_id);
                 if(email.getText().toString().equals("abc@123") && pwd.getText().toString().equals("1234")) {
 
                     Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
