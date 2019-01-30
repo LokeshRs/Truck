@@ -2,26 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/MainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:visibility="visible"
     tools:context=".FragmentActivity">
+
 
     <fragment
         android:id="@+id/fragment"
-        android:name="adefault.loginscreen.FirstFragment"
+        android:name="adefault.loginscreen.Fragment1"
         android:layout_width="match_parent"
-        android:layout_height="336dp"
-        tools:layout="@layout/first_fragment" />
+        android:layout_height="320dp"
+        tools:layout="@layout/fragment_fragment1" />
 
     <fragment
         android:id="@+id/fragment2"
-        android:name="adefault.loginscreen.SecondFragment"
+        android:name="adefault.loginscreen.Fragment2"
         android:layout_width="match_parent"
-        android:layout_height="382dp"
-        tools:layout="@layout/second_fragment" />
+        android:layout_height="379dp"
+        tools:layout="@layout/fragment_fragment2" />
 </LinearLayout>
-
-

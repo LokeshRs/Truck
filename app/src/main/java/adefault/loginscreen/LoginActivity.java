@@ -36,9 +36,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        img = (ImageView) findViewById(R.id.url_image);
-        load_img = (Button) findViewById(R.id.load_button);
-        next = (Button)findViewById(R.id.next_button);
+       /* img = (ImageView) findViewById(R.id.url_image);
+        load_img = (Button) findViewById(R.id.load_button);*/
+        next = (Button) findViewById(R.id.next_button);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,10 +47,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        load_img.setOnClickListener(new View.OnClickListener() {
+        /* load_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new LoadImg().execute();
+                Picasso.with(LoginActivity.this).load(url).into(img);
 
             }
         });
@@ -83,5 +83,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
+*/
+    }
 }
