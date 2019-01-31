@@ -31,7 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     Bitmap bit;
     String url = "http://www.pngall.com/wp-content/uploads/2017/05/Congratulation-Download-PNG.png";
     Button next;
-
+    Button list;
+    Button volley;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,42 +48,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /* load_img.setOnClickListener(new View.OnClickListener() {
+        list=(Button)findViewById(R.id.list_button);
+        list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Picasso.with(LoginActivity.this).load(url).into(img);
-
+                Intent myIntent2 = new Intent(LoginActivity.this, ListsActivity.class);
+                startActivity(myIntent2);
             }
         });
-
-
-    }
-
-    final class LoadImg extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-                bit = BitmapFactory.decodeStream((InputStream) new URL(url).getContent());
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
+        volley=(Button) findViewById(R.id.volley_button);
+        volley.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent3= new Intent(LoginActivity.this,VolleyActivity.class);
+                startActivity(myIntent3);
             }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            img.setImageBitmap(bit);
-
-
-                }
-
-
-    }
-*/
+        });
     }
 }
