@@ -1,10 +1,8 @@
 package adefault.loginscreen;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,16 +11,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.common.util.JsonUtils;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import adefault.loginscreen.adapters.PlanetAdapter;
@@ -34,6 +28,7 @@ public class VolleyActivity extends AppCompatActivity {
     TextView volley_resp;
     ArrayList<Planet> planetsList = new ArrayList<>();
     PlanetAdapter adapter;
+    Planet p = new Planet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,28 +48,25 @@ public class VolleyActivity extends AppCompatActivity {
                             Log.d("OnResponse", "" + response.getInt("count"));
                             JSONArray planets = response.getJSONArray("results");
                             for (int i = 0; i < planets.length(); i++) {
-                                Planet p = new Planet();
+
                                 JSONObject o = planets.getJSONObject(i);
                                 p.name = o.getString("name");
                                 p.climate = o.getString("climate");
                                 p.rotationPeriod = o.getString("rotation period");
                                 p.population = o.getString("population");
-                                JSONArray a = o.getJSONArray("residents");
                                 Log.d("Planet", p.toString());
-                                planetsList.add(p);
-                                adapter = new PlanetAdapter(VolleyActivity.this,planetsList);
-                                volley_list.setAdapter(adapter);
-
 
                             }
                         } catch (JSONException jsone) {
                             jsone.printStackTrace();
                         }
-                        Log.d("PlanetsList", "" + planetsList.size());
-                        adapter = new PlanetAdapter(VolleyActivity.this, planetsList);
-                        volley_list.setAdapter(adapter);
+
                         // set Adapter here
-                        // volley_resp.setText("Response is: "+ response.substring(0,500));
+                        planetsList.add(p);
+                        Log.d("PlanetsList", "" + planetsList.size());
+                        adapter = new PlanetAdapter(VolleyActivity.this,R.layout.activity_volley,planetsList);
+                        volley_list.setAdapter(adapter);
+                        volley_resp.setText("Response is: "+ planetsList);
                     }
                 }, new Response.ErrorListener() {
             @Override

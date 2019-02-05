@@ -58,7 +58,7 @@ public class ListsActivity extends AppCompatActivity implements AdapterView.OnIt
 
     // Use name as ListAdapter o
     //BaseAdapter
-   /* public class NameAdapter extends ArrayAdapter<String> {
+  /* public class NameAdapter extends ArrayAdapter<String> {
         HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
 
        /* public NameAdapter(Context context, int textViewResourceId, ListView objects) {
@@ -86,7 +86,7 @@ public class ListsActivity extends AppCompatActivity implements AdapterView.OnIt
          return convertView;
      }
 
+*/
 
-    }
-    */
+
 }
