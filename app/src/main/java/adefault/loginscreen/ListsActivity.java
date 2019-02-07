@@ -39,9 +39,9 @@ public class ListsActivity extends AppCompatActivity implements AdapterView.OnIt
         //Put adapter as instance variable
         // final BasicList adapter = new BasicList(this, android.R.layout.simple_list_item_1, list);
         // basic_list.setAdapter(adapter);
-        adapter = new NameAdapter(this,android.R.layout.simple_list_item_1,list);
-        defaultAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, list);
-        basic_list.setAdapter(adapter);
+       // adapter = new NameAdapter(this,android.R.layout.simple_list_item_1,list);
+       defaultAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, list);
+       // basic_list.setAdapter(adapter);
         basic_list.setOnItemClickListener(this);
         basic_list.setAdapter(defaultAdapter);
 

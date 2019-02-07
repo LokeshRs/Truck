@@ -25,7 +25,7 @@ public class Planet {
     @Override
     public String toString() {
         return /*"Planet{" +
-                "name='" + */name + '\'' ;
+                "name='" + */name  ;
                // ", rotationPeriod='" + rotationPeriod + '\'' +
                 //", climate='" + climate + '\'' +
                 //", population='" + population + '\'' +

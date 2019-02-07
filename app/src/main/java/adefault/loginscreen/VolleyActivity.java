@@ -2,7 +2,6 @@ package adefault.loginscreen;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +34,6 @@ public class VolleyActivity extends AppCompatActivity {
     ArrayList<Planet> planetsList = new ArrayList<>();
     PlanetAdapter adapter;
     ArrayAdapter<Planet> defaultAdapter;
-    Planet p = new Planet();
     Context context = VolleyActivity.this;
 
     @Override
@@ -59,11 +57,14 @@ public class VolleyActivity extends AppCompatActivity {
 
 
                                 JSONObject o = planets.getJSONObject(i);
+                                Planet p = new Planet();
                                 p.name = o.getString("name");
                                 p.climate = o.getString("climate");
-                                p.rotationPeriod = o.getString("rotation period");
+                                p.rotationPeriod = o.getString("rotation_period");
                                 p.population = o.getString("population");
                                 Log.d("Planet", p.toString());
+                                planetsList.add(p);
+
 
                             }
                         } catch (JSONException jsone) {
@@ -71,21 +72,20 @@ public class VolleyActivity extends AppCompatActivity {
                         }
 
                         // set Adapter here
-                        planetsList.add(p);
                         Log.d("PlanetsList", "" + planetsList.size());
-                        adapter = new PlanetAdapter(VolleyActivity.this, R.layout.support_simple_spinner_dropdown_item, planetsList);
+                        adapter = new PlanetAdapter(VolleyActivity.this, android.R.layout.simple_list_item_1, planetsList);
                         defaultAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, android.R.id.text1, planetsList);
-                        volley_list.setAdapter(adapter);
+                       // volley_list.setAdapter(adapter);
                         volley_list.setAdapter(defaultAdapter);
                         volley_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
 
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                /*Intent a = new Intent(VolleyActivity.this, LokeshActivity.class);
+                              /*  Intent a = new Intent(VolleyActivity.this, LokeshActivity.class);
                                 String name = (String) adapterView.getItemAtPosition(i);
                                 a.putExtra("title", name);
-                                startActivity(a);  */
-
+                                startActivity(a);
+*/
                             }
                         });
                         volley_resp.setText("Successfull");
