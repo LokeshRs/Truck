@@ -40,7 +40,7 @@ public class PlanetAdapter extends ArrayAdapter<Planet> {
         Planet planet = getItem(position);
         convertView = inflater.inflate(android.R.layout.simple_list_item_1,null);
         //convertView = inflater.inflate(R.layout.support_simple_spinner_dropdown_item, null);
-
+        listview = v.findViewById(R.id.volley_lists);
         return convertView;
     }
 }

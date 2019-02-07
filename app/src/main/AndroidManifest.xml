@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LokeshActivity"></activity>
+        <activity android:name=".PlanetDetails"></activity>
+        <activity android:name=".LokeshActivity" />
         <activity android:name=".VolleyActivity" />
         <activity android:name=".ListsActivity" />
         <activity android:name=".FragmentActivity" />

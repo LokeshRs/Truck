@@ -14,12 +14,12 @@ public class Planet {
         this.name = name;
     }
 
-    public String getRotationPeriod() {
-        return rotationPeriod;
+    public String getClimate() {
+        return climate;
     }
 
-    public void setRotationPeriod(String rotationPeriod) {
-        this.rotationPeriod = rotationPeriod;
+    public void setClimate(String climate) {
+        this.climate = climate;
     }
 
     @Override
