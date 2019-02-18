@@ -36,7 +36,6 @@ public class VolleyActivity extends AppCompatActivity {
     String previous_url;
     RequestQueue queue;
     Pagination listextract;
-    //Pagenation pagenation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +43,9 @@ public class VolleyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_volley);
         volley_list = findViewById(R.id.volley_lists);
         queue = Volley.newRequestQueue(this);
-        //for (int j = 1; j < 8; j++)
-        //String url = new StringBuilder().append("https://swapi.co/api/planets/?page=").append(j).toString();
         listextract = new Pagination();
         String url = "https://swapi.co/api/planets/?page=1";
-        // pagenation = new Pagenation(url);
+
         listextract.listExtract(url);
         View footerView = inflate(context, R.layout.list_footer, null);
         Log.d("Inflater", "footer sucessfull");
@@ -108,9 +105,7 @@ public class VolleyActivity extends AppCompatActivity {
                                 // set Adapter here
                                 Log.d("PlanetsList", "" + planetsList.size());
                                 adapter = new PlanetAdapter(context, planetsList);
-                                //defaultAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, android.R.id.text1, planetsList);
                                 volley_list.setAdapter(adapter);
-                                // volley_list.setAdapter(defaultAdapter);
 
                                 volley_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
