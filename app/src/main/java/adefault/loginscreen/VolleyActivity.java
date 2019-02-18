@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -36,6 +38,10 @@ public class VolleyActivity extends AppCompatActivity {
     String previous_url;
     RequestQueue queue;
     Pagination listextract;
+    String n="";
+    int count=1;
+    TextView page_no;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +58,18 @@ public class VolleyActivity extends AppCompatActivity {
         volley_list.addFooterView(footerView);
         next = findViewById(R.id.next);
         previous = findViewById(R.id.previous);
+        page_no = findViewById(R.id.page_no);
         Log.d("URL CHECK", "" + next_url);
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 adapter.clear();
                 listextract.listExtract(next_url);
-                adapter = new PlanetAdapter(context, planetsList);
-                volley_list.setAdapter(adapter);
+                buttonEnable();
+                count = count + 1;
+                page_no.setText("Page No. - " + count);
+
             }
         });
         previous.setOnClickListener(new View.OnClickListener() {
@@ -67,13 +77,25 @@ public class VolleyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 adapter.clear();
                 listextract.listExtract(previous_url);
-
+                buttonEnable();
+                count = count - 1;
+                page_no.setText("Page No. - " + count);
             }
         });
         Log.d("URL CHECK", "" + previous_url);
 
-
+        page_no.setText("Page No. - " + count);
     }
+        public void buttonEnable () {
+            if (next_url == n)
+                next.setEnabled(false);
+            else
+                next.setEnabled(true);
+            if (previous_url == n)
+                previous.setEnabled(false);
+            else
+                previous.setEnabled(true);
+        }
 
     class Pagination {
         public void listExtract(String url) {

@@ -43,7 +43,8 @@ public class PlanetAdapter extends ArrayAdapter<Planet> {
         TextView population = convertView.findViewById(R.id.population);
         TextView climate = convertView.findViewById(R.id.climate);
         title.setText(planet.name);
-        population.setText("Population : "+planet.population);
+        String pop = String.format("Population: &s",planet.population);
+        population.setText(pop);
         climate.setText("Climate : "+planet.climate);
 
         return convertView;
