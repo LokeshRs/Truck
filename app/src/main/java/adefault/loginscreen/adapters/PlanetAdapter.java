@@ -27,7 +27,7 @@ public class PlanetAdapter extends ArrayAdapter<Planet> {
     private LayoutInflater inflater;
     ListView listview;
     View v;
-    public PlanetAdapter(Context context, int activity_volley, ArrayList<Planet> planets){
+    public PlanetAdapter(Context context, ArrayList<Planet> planets){
         super(context, R.layout.planet_item, planets);
         inflater = LayoutInflater.from(context);
 
@@ -38,9 +38,14 @@ public class PlanetAdapter extends ArrayAdapter<Planet> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
        // return super.getView(position, convertView, parent);
         Planet planet = getItem(position);
-        convertView = inflater.inflate(android.R.layout.simple_list_item_1,null);
-        //convertView = inflater.inflate(R.layout.support_simple_spinner_dropdown_item, null);
-        listview = v.findViewById(R.id.volley_lists);
+        convertView = inflater.inflate(R.layout.planet_item,null);
+        TextView title= convertView.findViewById(R.id.title);
+        TextView population = convertView.findViewById(R.id.population);
+        TextView climate = convertView.findViewById(R.id.climate);
+        title.setText(planet.name);
+        population.setText("Population : "+planet.population);
+        climate.setText("Climate : "+planet.climate);
+
         return convertView;
     }
 }

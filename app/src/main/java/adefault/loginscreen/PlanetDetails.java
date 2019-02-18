@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import adefault.loginscreen.model.Planet;
+
 public class PlanetDetails extends AppCompatActivity {
 
     TextView rotation_period, climate, population,title,diamter,gravity,surface_water;
@@ -19,6 +21,8 @@ public class PlanetDetails extends AppCompatActivity {
         climate.setText(getIntent().getStringExtra("climate"));
         population.setText(getIntent().getStringExtra("population"));
         title.setText(getIntent().getStringExtra("title"));
+        Planet planet = (Planet) getIntent().getSerializableExtra("planet");
+
 
     }
 }

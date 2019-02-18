@@ -1,6 +1,8 @@
 package adefault.loginscreen.model;
 
-public class Planet {
+import java.io.Serializable;
+
+public class Planet implements Serializable {
     public String name;
     public String rotationPeriod;
     public String climate;
