@@ -9,11 +9,14 @@ import android.support.v4.widget.CircularProgressDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import static adefault.loginscreen.R.id.button_login;
 import static android.app.PendingIntent.getActivity;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button n;
     EditText email;
     EditText pwd;
+    TextView link;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
+
             }
         });
+        link = findViewById(R.id.link);
+        link.setClickable(true);
+        link.setMovementMethod(LinkMovementMethod.getInstance());
+        String text = "<a href='http://www.truckbrokers.in/#'>WebPage </a>";
+        link.setText("For Further Details Click here - "+Html.fromHtml(text));
 
         }
 }
